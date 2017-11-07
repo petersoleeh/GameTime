@@ -15,4 +15,5 @@ def index():
     view function for the landing page
     """
     week_fixture=get_week()
+    print(len(week_fixture))
     return render_template('index.html',week_fixture=week_fixture)

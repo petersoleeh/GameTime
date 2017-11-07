@@ -41,4 +41,4 @@ def process_results(fixture_list):
             print('<><><><><><>FGHJ<><><><><>')
             match_object=Match(home,home_id,away,away_id,date)
             fixture_results.append(match_object)
-        return fixture_results
+    return fixture_results
