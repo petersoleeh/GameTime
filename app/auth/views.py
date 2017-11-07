@@ -5,6 +5,21 @@ from ..models import User
 from .forms import LoginForm, RegistrationForm
 from .. import db
 
+@auth.route('/register', methods = ["GET", "POST"])
+def register():
+    form = RegistrationForm()
+    if form.validate_on_submit():
+        user = User(email = form.email.data, username = form.username.data, password = form.password.data)
+        db.session.add(user)
+        db.session.commit()
+
+        return redirect(url_for('.login'))
+        flash('Your account was registered successfully. You can now log in.')
+
+    title = "New Account"
+    return render_template('auth/register.html', title = title, registration_form = form)
+
+
 @auth.route('/login', methods = ["GET", "POST"])
 def login():
     login_form = LoginForm()
@@ -19,19 +34,6 @@ def login():
     title = "Login"
     return render_template('auth/login.html', title = title, login_form = login_form)
 
-@auth.route('/register', methods = ["GET", "POST"])
-def register():
-    form = RegistrationForm()
-    if form.validate_on_submit():
-        user = User(email = form.email.data, username = form.username.data, password = form.password.data)
-        db.session.add(user)
-        db.session.commit()
-
-        return redirect(url_for('.login'))
-        flash('Your account was registered successfully. You can now log in.')
-
-    title = "New Account"
-    return render_template('auth/register.html', title = title, registration_form = form)
 
 @auth.route('/logout')
 @login_required
