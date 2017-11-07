@@ -6,7 +6,7 @@ class Config:
     '''
     SECRET_KEY = os.environ.get('SECRET_KEY')
     SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://soleeh:soleeh..@localhost/gametime'
-
+    GAME_WEEK_API='https://gtime-api.herokuapp.com/teams/week/12'
 
 
 class ProdConfig(Config):
