@@ -16,6 +16,9 @@ def register():
         db.session.add(user)
         db.session.commit()
 
+        mail_message("Welcome to gametime website",
+                     "email/welcome user", user.email, user=user)
+
         return redirect(url_for('.login'))
         flash('Your account was registered successfully. You can now log in.')
 
