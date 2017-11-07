@@ -1,0 +1,60 @@
+{% extends 'base.html' %} {% block content %}
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-2">
+      <h3>Leagues</h3>
+      <ul class="nav navbar-nav">
+        <li><a href="#">EPL</a></li>
+        <li><a href="#">BundesLiga</a></li>
+        <li><a href="#">LaLiga</a></li>
+        <li><a href="#">League 1</a></li>
+      </ul>
+    </div>
+    <div class="col-md-8">
+      <h3>Standing Matches</h3>
+      <table style="width:100%">
+        <tr>
+          <th>TP</th>
+          <th>Teams</th>
+          <th>Game Points</th>
+          <th>GD</th>
+
+        </tr>
+        <tr>
+          <td>1</td>
+          <td>Man U</td>
+          <td>41</td>
+          <td>21</td>
+
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>Arsenal</td>
+          <td>42</td>
+          <td>20</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>Chelsea</td>
+          <td>41</td>
+          <td>19</td>
+          <tr>
+            <td>4</td>
+            <td>Jiuventus</td>
+            <td>40</td>
+            <td>16</td>
+          </tr>
+      </table>
+    </div>
+    <div class="col-md-2">
+      <h3>Week Fixtures</h3>
+      <ul class="nav navbar-nav">
+        <li><a href="#">GAMETIME</a></li>
+        <li><a href="#">FIXTURE</a></li>
+        <li><a href="#">LEAGUE</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+{% endblock %}
