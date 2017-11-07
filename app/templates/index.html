@@ -17,40 +17,22 @@
       </ul>
     </div>
     <div class="col-md-8">
-      <h3>Standing Matches</h3>
-      <table style="width:100%">
-        <tr>
-          <th>TP</th>
-          <th>Teams</th>
-          <th>Game Points</th>
-          <th>GD</th>
+      <h3>This Week</h3> {% for fixture in week_fixture %}
+      <div class="fixture">
+        <div class="row">
+          <div class="col-md-5">
+            <h4><a href="/team/{{fixture.home_id}}">{{fixture.home}}</a></h4>
+          </div>
+          <div class="col-md-2">
+            <p>{{fixture.date}}</p>
+          </div>
+          <div class="col-md-5">
+            <h4><a href="/team/{{fixture.away_id}}">{{fixture.away}}</a></h4>
 
-        </tr>
-        <tr>
-          <td>1</td>
-          <td>Man U</td>
-          <td>41</td>
-          <td>21</td>
-
-        </tr>
-        <tr>
-          <td>2</td>
-          <td>Arsenal</td>
-          <td>42</td>
-          <td>20</td>
-        </tr>
-        <tr>
-          <td>3</td>
-          <td>Chelsea</td>
-          <td>41</td>
-          <td>19</td>
-          <tr>
-            <td>4</td>
-            <td>Jiuventus</td>
-            <td>40</td>
-            <td>16</td>
-          </tr>
-      </table>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
     </div>
     <div class="col-md-2">
       <h3>Week Fixtures</h3>
