@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+<!-- styles block -->
+{%block styles%} {{ super() }}
+<link rel="stylesheet" href="{{url_for('static', filename='css/index.css')}}"> {%endblock%} {% block content %}
+
+<div class="col-md-8">
+  <h3>This Week</h3> {% for fixture in team_fixtures %}
+  <div class="fixture">
+    <div class="row">
+      <div class="col-md-5">
+        <h4><a href="/team/{{fixture.home_id}}">{{fixture.home}}</a></h4>
+      </div>
+      <div class="col-md-2">
+        <p>{{fixture.date}}</p>
+      </div>
+      <div class="col-md-5">
+        <h4><a href="/team/{{fixture.away_id}}">{{fixture.away}}</a></h4>
+
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+
+
+
+
+{% endblock %}
