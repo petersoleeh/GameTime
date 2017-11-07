@@ -1,0 +1,3 @@
+Hello {{user.username}}
+Welcome to GameTime
+We have just seen you sign up for our application and want to welcome you to the family. Please enjoy the all of your favourite leagues and matches.
