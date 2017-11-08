@@ -48,3 +48,9 @@ class Match:
         self.away=away
         self.away_id=away_id
         self.date=date
+
+
+class Favourite(db.Model):
+    id = db.Column(db.Integer,primary_key = True)
+    team_id= db.Column(db.String(255))
+    user_id=db.Column(db.Integer,db.ForeignKey('users.id'))

@@ -2,7 +2,15 @@
 <!-- styles block -->
 {%block styles%} {{ super() }}
 <link rel="stylesheet" href="{{url_for('static', filename='css/index.css')}}"> {%endblock%} {% block content %}
-
+<div class="col-md-2">
+  <h3>Leagues</h3>
+  <ul class="">
+    <li><a href="#">EPL</a></li>
+    <li><a href="#">BundesLiga</a></li>
+    <li><a href="#">LaLiga</a></li>
+    <li><a href="#">League 1</a></li>
+  </ul>
+</div>
 <div class="col-md-8">
   <h3>This Week</h3> {% for fixture in team_fixtures %}
   <div class="fixture">
@@ -21,7 +29,14 @@
   </div>
   {% endfor %}
 </div>
-
+<div class="col-md-2">
+  <h3>Favourites</h3>
+  <ul class="">
+    <li><a href="#">chelsea</a></li>
+    <li><a href="#">arsenal</a></li>
+    <li><a href="#">man u</a></li>
+  </ul>
+</div>
 
 
 
