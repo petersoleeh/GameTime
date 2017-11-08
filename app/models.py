@@ -45,7 +45,17 @@ class Match:
         self.away=away
         self.away_id=away_id
         self.date=date
-
+class League:
+    '''
+    league class to define the standings
+    '''
+    def __init__(self,pos,team,team_id,points,played,gd):
+        self.pos=pos
+        self.team=team
+        self.team_id=team_id
+        self.points=points
+        self.played=played
+        self.gd=gd
 
 class Favourite(db.Model):
     id = db.Column(db.Integer,primary_key = True)

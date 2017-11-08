@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+<!-- styles block -->
+{%block styles%} {{ super() }}
+<link rel="stylesheet" href="{{url_for('static', filename='css/index.css')}}"> {%endblock%} {% block content %}
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-2">
+      <h3>Leagues</h3>
+      <ul class="">
+        <li><a href="#">EPL</a></li>
+        <li><a href="#">BundesLiga</a></li>
+        <li><a href="#">LaLiga</a></li>
+        <li><a href="#">League 1</a></li>
+      </ul>
+    </div>
+    <div class="col-md-8">
+      <h3>This Week</h3>
+      <div class="fixture">
+
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Pos</th>
+              <th>Team</th>
+              <th>played</th>
+              <th>gd</th>
+              <th>points</th>
+
+            </tr>
+          </thead>
+          <tbody>
+            {% for standing in league %}
+            <tr>
+              <td>{{standing.pos}}</td>
+              <td>{{standing.team}}</td>
+              <td>{{standing.played}}</td>
+              <td>{{standing.gd}}</td>
+              <td>{{standing.points}}</td>
+
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="col-md-2">
+      <h3>Favourites</h3>
+      <ul class="">
+        <li><a href="#">chelsea</a><span class="home"><a class="btn btn-primary btn-sm"href="#">del</a></span></li>
+        <li><a href="#">arsenal</a></li>
+        <li><a href="#">man u</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+{% endblock %}
