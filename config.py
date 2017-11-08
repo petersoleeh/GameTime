@@ -9,6 +9,14 @@ class Config:
     GAME_WEEK_API='https://gtime-api.herokuapp.com/teams/week/12'
     TEAM_URL='https://gtime-api.herokuapp.com/teams/{}'
 
+#  email configurations
+    MAIL_SERVER = 'smtp.googlemail.com'
+    MAIL_PORT = 587
+    MAIL_USE_TLS = True
+    MAIL_USERNAME = os.environ.get("MAIL_USERNAME")
+    MAIL_PASSWORD = os.environ.get("MAIL_PASSWORD")
+
+
 class ProdConfig(Config):
     '''
     Production  configuration child class
