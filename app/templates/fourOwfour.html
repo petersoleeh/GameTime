@@ -1,0 +1,7 @@
+{% extends 'base.html'%}
+{%block styles%} {{ super() }}
+<link rel="stylesheet" href="{{url_for('static', filename='css/index.css')}}"> {%endblock%}
+
+{% block content %}
+   <h1 id="error" class="text-center">WHoooops!!! imagine we can't find the page</h1>
+{% endblock %}
