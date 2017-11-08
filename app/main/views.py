@@ -20,7 +20,7 @@ def team(name):
     '''
     team_fixtures = get_fixtures(name)
 
-    if team in None:
-        abort(404)
+    # if team in None:
+    #     abort(404)
 
     return render_template('team.html', team_fixtures=team_fixtures)
