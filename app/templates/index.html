@@ -7,7 +7,7 @@
   <div class="row">
     <div class="col-md-2">
       <h3>Leagues</h3>
-      <ul class="">
+      <ul class="nav navbar-nav">
         <li><a href="#">EPL</a></li>
         <li><a href="#">BundesLiga</a></li>
         <li><a href="#">LaLiga</a></li>
@@ -19,13 +19,13 @@
       <div class="fixture">
         <div class="row">
           <div class="col-md-5">
-            <h4><span class="home"><a class="btn btn-primary btn-sm"href="#">fav</a></span><a href="/team/{{fixture.home_id}}">{{fixture.home}}</a></h4>
+            <h4><a href="/team/{{fixture.home_id}}">{{fixture.home}}</a></h4>
           </div>
           <div class="col-md-2">
             <p>{{fixture.date}}</p>
           </div>
           <div class="col-md-5">
-            <h4><a href="/team/{{fixture.away_id}}">{{fixture.away}}</a> <span class="away"><a class="btn btn-primary btn-sm"href="#">fav</a></span></h4>
+            <h4><a href="/team/{{fixture.away_id}}">{{fixture.away}}</a></h4>
 
           </div>
         </div>
@@ -33,11 +33,11 @@
       {% endfor %}
     </div>
     <div class="col-md-2">
-      <h3>Favourites</h3>
-      <ul class="">
-        <li><a href="#">chelsea</a><span class="home"><a class="btn btn-primary btn-sm"href="#">del</a></span></li>
-        <li><a href="#">arsenal</a></li>
-        <li><a href="#">man u</a></li>
+      <h3>Week Fixtures</h3>
+      <ul class="nav navbar-nav">
+        <li><a href="#">GAMETIME</a></li>
+        <li><a href="#">FIXTURE</a></li>
+        <li><a href="#">LEAGUE</a></li>
       </ul>
     </div>
   </div>
