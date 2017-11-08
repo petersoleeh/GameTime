@@ -26,3 +26,12 @@ def team(name):
     '''
     team_fixtures=get_fixtures(name)
     return render_template('team.html',team_fixtures=team_fixtures)
+
+
+@main.route('/league')
+def league():
+    '''
+    view function for league
+    '''
+
+    return render_template('league.html')
