@@ -1,6 +1,6 @@
 from flask import render_template,request,redirect,url_for,abort
 from . import main
-from ..request import get_week,get_fixtures
+from ..request import get_week,get_fixtures,get_league
 
 
 
@@ -33,5 +33,6 @@ def league():
     '''
     view function for league
     '''
-
-    return render_template('league.html')
+    league=get_league()
+    print(len(league))
+    return render_template('league.html',league=league)

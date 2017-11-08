@@ -7,7 +7,7 @@ fixture_url=None
 league_url=None
 
 def configure_request(app):
-    global base_url,fixture_url
+    global base_url,fixture_url,league_url
     base_url = app.config['GAME_WEEK_API']
     fixture_url = app.config['TEAM_URL']
     league_url=app.config['LEAGUE_URL']
@@ -16,7 +16,10 @@ def get_league():
     '''
     function to get the league in api
     '''
+
+    print(league_url)
     with urllib.request.urlopen(league_url) as url:
+        # print('<><><><>>NM<><><><><><>')
         get_league_data=url.read()
         get_league_response=json.loads(get_league_data)
 

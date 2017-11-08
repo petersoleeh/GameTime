@@ -17,20 +17,31 @@
     <div class="col-md-8">
       <h3>This Week</h3>
       <div class="fixture">
-        <div class="row">
-          <div class="col-md-1">
 
-          </div>
-          <div class="col-md-7">
-          </div>
-          <div class="col-md-1">
-          </div>
-          <div class="col-md-1">
-          </div>
-          <div class="col-md-2">
-          </div>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Pos</th>
+              <th>Team</th>
+              <th>played</th>
+              <th>gd</th>
+              <th>points</th>
 
-        </div>
+            </tr>
+          </thead>
+          <tbody>
+            {% for standing in league %}
+            <tr>
+              <td>{{standing.pos}}</td>
+              <td>{{standing.team}}</td>
+              <td>{{standing.played}}</td>
+              <td>{{standing.gd}}</td>
+              <td>{{standing.points}}</td>
+
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
       </div>
     </div>
     <div class="col-md-2">
