@@ -15,10 +15,7 @@ class User(UserMixin,db.Model):
     id = db.Column(db.Integer,primary_key = True)
     username = db.Column(db.String(255))
     email=db.Column(db.String(255),unique=True,index=True)
-    #password_hash=db.Column(db.String(255))
     pass_secure = db.Column(db.String(255))
-    #pitches = db.relationship("Pitch", backref="user", lazy = "dynamic")
-    #feedback = db.relationship("Feedback", backref="user", lazy = "dynamic")
 
 
     @property
@@ -48,3 +45,9 @@ class Match:
         self.away=away
         self.away_id=away_id
         self.date=date
+
+
+class Favourite(db.Model):
+    id = db.Column(db.Integer,primary_key = True)
+    team_id= db.Column(db.String(255))
+    user_id=db.Column(db.Integer,db.ForeignKey('users.id'))

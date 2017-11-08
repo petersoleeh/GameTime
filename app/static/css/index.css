@@ -1,2 +1,9 @@
 .fixture{
   text-align: center;
+}
+.home{
+  float: left;
+}
+.away{
+  float: right;
+}
