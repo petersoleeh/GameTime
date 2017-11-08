@@ -23,7 +23,7 @@ def index():
     view function for the landing page
     """
     week_fixture=get_week()
-
+    # favourites=[]
     favourites=Favourite.query.filter_by(user=current_user)
     # print(len(week_fixture))
     return render_template('index.html',week_fixture=week_fixture,favourites=favourites)
