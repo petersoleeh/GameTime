@@ -16,6 +16,7 @@ class User(UserMixin,db.Model):
     username = db.Column(db.String(255))
     email=db.Column(db.String(255),unique=True,index=True)
     pass_secure = db.Column(db.String(255))
+    feedback = db.relationship("Favourte", backref="user", lazy = "dynamic")
 
 
     @property
@@ -60,4 +61,16 @@ class League:
 class Favourite(db.Model):
     id = db.Column(db.Integer,primary_key = True)
     team_id= db.Column(db.String(255))
-    user_id=db.Column(db.Integer,db.ForeignKey('users.id'))
+    user_id = db.Column(db.Integer,db.ForeignKey('users.id'))
+
+
+
+    @classmethod
+    def add_favorites(self,cls):
+        db.session.add(self)
+        db.session.commit()
+
+    @classmethod
+    def delete_favourites(self,cls):
+        db.session.delete(self)
+        db.session.commit
