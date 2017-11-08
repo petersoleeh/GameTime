@@ -19,7 +19,9 @@
       <div class="fixture">
         <div class="row">
           <div class="col-md-5">
-            <h4><span class="home"><a class="btn btn-primary btn-sm"href="#">fav</a></span><a href="/team/{{fixture.home_id}}">{{fixture.home}}</a></h4>
+            <h4><span class="home"><form action="" method="post"><button type="submit" name="add_f" value="{{fixture.home_id}}">fav</button>
+
+            </form></span><a href="/team/{{fixture.home_id}}">{{fixture.home}}</a></h4>
           </div>
           <div class="col-md-2">
             <p>{{fixture.date}}</p>

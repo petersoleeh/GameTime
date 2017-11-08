@@ -1,6 +1,8 @@
 from flask import render_template,request,redirect,url_for,abort
 from . import main
 from ..request import get_week,get_fixtures
+from ..models import Favourite,User
+from flask_login import login_required,login_user, current_user
 
 
 
@@ -9,8 +11,13 @@ from ..request import get_week,get_fixtures
 
 
 
-@main.route('/')
+@main.route('/', methods = ["GET", "POST"])
 def index():
+    if request.method == 'POST':
+        team_id = request.form.get('add_f')
+        print(team_id)
+        favourite_team = Favourite(team_id = team_id, user = current_user)
+        return redirect ('/')
     """
     view function for the landing page
     """
