@@ -17,13 +17,16 @@ def index():
         team_id = request.form.get('add_f')
         print(team_id)
         favourite_team = Favourite(team_id = team_id, user = current_user)
+        favourite_team.add_favorites()
         return redirect ('/')
     """
     view function for the landing page
     """
     week_fixture=get_week()
+
+    favourites=Favourite.query.filter_by(user=current_user)
     # print(len(week_fixture))
-    return render_template('index.html',week_fixture=week_fixture)
+    return render_template('index.html',week_fixture=week_fixture,favourites=favourites)
 
 
 @main.route('/team/<name>')

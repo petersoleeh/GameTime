@@ -29,23 +29,23 @@
             {% for fixture in week_fixture %}
             <tr>
               <td>{{fixture.date}}</td>
-              <td><a href="/team/{{fixture.home_id}}">{{fixture.home}}</a> <span class="home"><a class="btn btn-primary btn-sm"href="#">fav</a></span></td>
+              <td><a href="/team/{{fixture.home_id}}">{{fixture.home}}<form action="" method="post"><button class="btn btn-primary"type="submit" name="add_f" value="{{fixture.home_id}}">fav</button></form></td>
               <td><a href="/team/{{fixture.away_id}}">{{fixture.away}}</a> <span class="away"><a class="btn btn-primary btn-sm"href="#">fav</a></span></td>
             </tr>
             {% endfor %}
           </tbody>
         </table>
-        </div>
-      </div>
-        <div class="col-md-2">
-          <h3>Favourite Section</h3>
-          <ul class="nav navbar-nav">
-            <li><a href="#">GAMETIME</a></li>
-            <li><a href="#">FIXTURE</a></li>
-            <li><a href="#">LEAGUE</a></li>
-          </ul>
-        </div>
       </div>
     </div>
+    <div class="col-md-2">
+      <h3>Favourite Section</h3>
+      <ul class="nav navbar-nav">
+        {% for fav in favourites %}
+        <li><a href="#">{{fav.team_id}}</a></li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+</div>
 
-    {% endblock %}
+{% endblock %}
