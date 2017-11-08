@@ -1,3 +1,10 @@
 Hello {{user.username}}
-Welcome to GameTime
-We have just seen you sign up for our application and want to welcome you to the family. Please enjoy the all of your favourite leagues and matches.
+
+Welcome to GameTime! Thanks so much for joining us. You’re on your way to super-leagues and beyond!
+Here you will find the leaques you like and set the teams in there as your favorite.
+
+You will also be able to track your favorite team performance through the league standing table.
+Please enjoy all of your favourite leagues and Teams.
+
+Cheerfully yours,
+The GameTime Team
