@@ -7,3 +7,6 @@
 .away{
   float: right;
 }
+#error{
+  color: red;
+}

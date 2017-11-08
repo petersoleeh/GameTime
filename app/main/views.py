@@ -6,9 +6,6 @@ from ..request import get_week,get_fixtures
 
 
 
-
-
-
 @main.route('/')
 def index():
     """
