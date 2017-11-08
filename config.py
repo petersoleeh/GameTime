@@ -6,8 +6,8 @@ class Config:
     '''
     SECRET_KEY = os.environ.get('SECRET_KEY')
     # SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://soleeh:soleeh..@localhost/gametime'
-    GAME_WEEK_API='https://gtime-api.herokuapp.com/teams/week/12'
-    TEAM_URL='https://gtime-api.herokuapp.com/teams/{}'
+    GAME_WEEK_API='http://127.0.0.1:3000/teams/week/12'
+    TEAM_URL='http://127.0.0.1:3000/teams/{}'
 
 #  email configurations
     MAIL_SERVER = 'smtp.googlemail.com'
