@@ -1,10 +1,10 @@
 Hello {{user.username}}
 
 Welcome to GameTime! Thanks so much for joining us. You’re on your way to super-leagues and beyond!
-Here you will find the leaques you like and set the teams in there as your favorite.
+Here you will find the Leagues you like and set the teams in there as your favorite.
 
 You will also be able to track your favorite team performance through the league standing table.
-Please enjoy all of your favourite leagues and Teams.
+Please enjoy all of your favorite leagues and Teams.
 
 Cheerfully yours,
 The GameTime Team
