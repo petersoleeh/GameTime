@@ -41,12 +41,14 @@ class Match:
     match class to define match objects
     '''
 
-    def __init__(self,home,home_id,away,away_id,date):
+    def __init__(self,home,home_id,away,away_id,date,score,status):
         self.home=home
         self.home_id=home_id
         self.away=away
         self.away_id=away_id
         self.date=date
+        self.score=score
+        self.status=status
 
 class League:
     '''
