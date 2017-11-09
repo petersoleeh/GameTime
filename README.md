@@ -23,7 +23,7 @@ The user is able to see the date of the match to be played.
 * gunicorn
 * Heroku CLI
 
-If the user has cloned this website then chances are that he/she has to run the server else if not, then find it online on heroku:  
+If the user has cloned this website then chances are that he/she has to run the server else if not, then find it online on heroku: https://gametime-ke.herokuapp.com/
 ## Known Bugs
 
 The API is not real time and the search button is not calling the functions from the API
@@ -43,22 +43,6 @@ We are not able to display many Leagues currently.
 In case of any comment,question or doubt please don't hesitate drop it here to our email box: gametimeke@gmail.com
 ### License
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+MIT
 
 Copyright (c) 2017 **By team Game Time**

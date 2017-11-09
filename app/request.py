@@ -96,8 +96,11 @@ def process_results(fixture_list):
         away_id = match.get('away_id')
         away = match.get('away')
         date = match.get('date')
-
-        if home:
-            match_object = Match(home, home_id, away, away_id, date)
-            fixture_results.append(match_object)
+        status=match.get('status')
+        if status=='FT':
+            score=match.get('score')
+        else:
+            score='none'
+        match_object = Match(home, home_id, away, away_id, date,score,status)
+        fixture_results.append(match_object)
     return fixture_results

@@ -8,5 +8,25 @@
   float: right;
 }
 #error{
-  color: red;
+  color: #000;
 }
+#navigate{
+  background-color: #02401d ;
+  color: #fff;
+
+}
+body{
+  background-color: #057f39;
+  color: #fff;
+}
+a{
+  color: #fff;
+}
+
+/*.jumbotron{
+  background-image: url("../images/soccer-ball.jpg");
+  background-repeat: no-repeat;
+  padding-top: 0%;
+  padding-bottom: 15%;
+
+}*/
