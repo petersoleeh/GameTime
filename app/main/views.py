@@ -10,34 +10,23 @@ def index():
     """
     view function for the landing page
     """
-
+    favourites = []
     week_fixture=get_week()
     if current_user.is_authenticated:
         if request.method == 'POST':
+            favourites_obj=Favourite.query.filter_by(user=current_user).all()
             team_id = request.form.get('add_f')
-            # print(team_id)
-            favourites_team=Favourite.query.filter_by(user=current_user)
-
-            for fav in favourites_team:
-                if fav not in favourite_teams:
-                    #favourite_team = Favourite(team_id = team_id, user = current_user)
-                    fav.add_favorites()
-                else:
-                    fav.delete_favourites()
-
+            fav_list=[]
+            for fav in favourites_obj:
+                asdf=fav.team_id
+                fav_list.append(asdf)
+            if team_id not in fav_list:
+                favourite_team = Favourite(team_id = team_id, user = current_user)
+                favourite_team.add_favorites()
             return redirect ('/')
-
-        favourites_team = Favourite.query.filter_by(user=current_user)
-        # print(len(week_fixture))
-        return render_template('index.html',week_fixture=week_fixture)
-    return render_template('index.html',week_fixture=week_fixture)
-
-# @main.route('/league/<name>')
-# def league(name):
-#     '''
-#     view function to show the leagues
-#     '''
-#
+        favourites=Favourite.query.filter_by(user=current_user)
+        return render_template('index.html',week_fixture=week_fixture,favourites=favourites)
+    return render_template('index.html',week_fixture=week_fixture,favourites=favourites)
 
 @main.route('/team/<name>')
 def team(name):
