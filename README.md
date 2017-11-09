@@ -27,7 +27,7 @@ If the user has cloned this website then chances are that he/she has to run the 
 ## Known Bugs
 
 The API is not real time and the search button is not calling the functions from the API
-We are not able to display many Leagues currently.
+We are not able to display lots of Leagues currently.
 
 ## Technologies Used
 
