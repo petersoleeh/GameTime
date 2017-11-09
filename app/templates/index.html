@@ -2,8 +2,11 @@
 <!-- styles block -->
 {%block styles%} {{ super() }}
 <link rel="stylesheet" href="{{url_for('static', filename='css/index.css')}}"> {%endblock%} {% block content %}
+<!-- <div class="jumbotron">
+  <h1 id="header">GameTime</h1>
+</div> -->
 
-<div class="container">
+<div id="index" class="container">
   <div class="row">
     <div class="col-md-2">
       <h3>Leagues</h3>
