@@ -21,16 +21,15 @@ def get_league(name):
     '''
     get_fixtures_url = league_url.format(name)
     print(league_url)
-<<<<<<< HEAD
+
     with urllib.request.urlopen(league_url) as url:
         get_league_data = url.read()
         get_league_response = json.loads(get_league_data)
-=======
+
     with urllib.request.urlopen(get_fixtures_url) as url:
         # print('<><><><>>NM<><><><><><>')
-        get_league_data=url.read()
-        get_league_response=json.loads(get_league_data)
->>>>>>> 04d7f208c21e81fbdcbe0a8a8157298fc1c05ce6
+        get_league_data = url.read()
+        get_league_response = json.loads(get_league_data)
 
         league_results = None
 
@@ -103,11 +102,11 @@ def process_results(fixture_list):
         away_id = match.get('away_id')
         away = match.get('away')
         date = match.get('date')
-        status=match.get('status')
-        if status=='FT':
-            score=match.get('score')
+        status = match.get('status')
+        if status == 'FT':
+            score = match.get('score')
         else:
-            score='none'
-        match_object = Match(home, home_id, away, away_id, date,score,status)
+            score = 'none'
+        match_object = Match(home, home_id, away, away_id, date, score, status)
         fixture_results.append(match_object)
     return fixture_results
