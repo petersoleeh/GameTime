@@ -7,7 +7,7 @@
   <div class="row">
     <div class="col-md-2">
       <h3>Leagues</h3>
-      <ul class="nav navbar-nav">
+      <ul class="">
         <li><a href="#">EPL</a></li>
         <li><a href="#">BundesLiga</a></li>
         <li><a href="#">LaLiga</a></li>
@@ -17,20 +17,27 @@
     <div class="col-md-8">
       <h3>This Week</h3>
       <div class="fixture">
+
         <table class="table">
           <thead>
             <tr>
-              <th>Date</th>
-              <th>Home</th>
-              <th>Away</th>
+              <th>Pos</th>
+              <th>Team</th>
+              <th>played</th>
+              <th>gd</th>
+              <th>points</th>
+
             </tr>
           </thead>
           <tbody>
-            {% for fixture in week_fixture %}
+            {% for standing in league %}
             <tr>
-              <td>{{fixture.date}}</td>
-              <td><a href="/team/{{fixture.home_id}}">{{fixture.home}}<form action="" method="post"><button class="btn btn-primary"type="submit" name="add_f" value="{{fixture.home_id}}">fav</button></form></td>
-              <td><a href="/team/{{fixture.away_id}}">{{fixture.away}}</a> <span class="away"><a class="btn btn-primary btn-sm"href="#">fav</a></span></td>
+              <td>{{standing.pos}}</td>
+              <td>{{standing.team}}</td>
+              <td>{{standing.played}}</td>
+              <td>{{standing.gd}}</td>
+              <td>{{standing.points}}</td>
+
             </tr>
             {% endfor %}
           </tbody>
@@ -38,14 +45,13 @@
       </div>
     </div>
     <div class="col-md-2">
-      <h3>Favourite Section</h3>
-      <ul class="nav navbar-nav">
-        {% for fav in favourites %}
-        <li><a href="#">{{fav.team_id}}</a></li>
-        {% endfor %}
+      <h3>Favourites</h3>
+      <ul class="">
+        <li><a href="#">chelsea</a><span class="home"><a class="btn btn-primary btn-sm"href="#">del</a></span></li>
+        <li><a href="#">arsenal</a></li>
+        <li><a href="#">man u</a></li>
       </ul>
     </div>
   </div>
 </div>
-
 {% endblock %}
