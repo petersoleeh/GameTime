@@ -8,7 +8,7 @@ class Config:
     # SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://soleeh:soleeh..@localhost/gametime'
     GAME_WEEK_API='http://gtime-api.herokuapp.com/teams/week/12'
     TEAM_URL='http://gtime-api.herokuapp.com/teams/{}'
-    LEAGUE_URL='http://gtime-api.herokuapp.com/league'
+    LEAGUE_URL='http://gtime-api.herokuapp.com/teams/league/{}'
 
 #  email configurations
     MAIL_SERVER = 'smtp.googlemail.com'
