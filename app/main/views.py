@@ -10,7 +10,7 @@ def index():
     """
     view function for the landing page
     """
-    favourites=[]
+
     week_fixture=get_week()
     if current_user.is_authenticated:
         if request.method == 'POST':
@@ -19,11 +19,11 @@ def index():
             favourites_team=Favourite.query.filter_by(user=current_user)
 
             for fav in favourites_team:
-                if fav not in favourites:
+                if fav not in favourite_teams:
                     #favourite_team = Favourite(team_id = team_id, user = current_user)
-                    favourites.add_favorites()
+                    fav.add_favorites()
                 else:
-                    favourites.delete_favourites()
+                    fav.delete_favourites()
 
             return redirect ('/')
 
