@@ -28,6 +28,12 @@ def index():
         return render_template('index.html',week_fixture=week_fixture,favourites=favourites)
     return render_template('index.html',week_fixture=week_fixture,favourites=favourites)
 
+# @main.route('/league/<name>')
+# def league(name):
+#     '''
+#     view function to show the leagues
+#     '''
+#
 
 @main.route('/team/<name>')
 def team(name):
@@ -38,11 +44,11 @@ def team(name):
     return render_template('team.html',team_fixtures=team_fixtures)
 
 
-@main.route('/league')
-def league():
+@main.route('/league/<name>',methods=["GET","POST"])
+def league(name):
     '''
     view function for league
     '''
-    league=get_league()
+    league=get_league(name)
     print(len(league))
     return render_template('league.html',league=league)

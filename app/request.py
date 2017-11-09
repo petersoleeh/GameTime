@@ -12,13 +12,13 @@ def configure_request(app):
     fixture_url = app.config['TEAM_URL']
     league_url=app.config['LEAGUE_URL']
 
-def get_league():
+def get_league(name):
     '''
     function to get the league in api
     '''
-
+    get_fixtures_url = league_url.format(name)
     print(league_url)
-    with urllib.request.urlopen(league_url) as url:
+    with urllib.request.urlopen(get_fixtures_url) as url:
         # print('<><><><>>NM<><><><><><>')
         get_league_data=url.read()
         get_league_response=json.loads(get_league_data)
