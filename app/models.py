@@ -3,6 +3,7 @@ from flask_login import UserMixin
 from . import db
 from . import login_manager
 
+
 @login_manager.user_loader
 def load_user(user_id):
     return User.query.get(int(user_id))
@@ -66,10 +67,7 @@ class Favourite(db.Model):
     team_id= db.Column(db.String(255))
     user_id = db.Column(db.Integer,db.ForeignKey('users.id'))
 
-
-
-    @classmethod
-    def add_favorites(self,cls):
+    def add_favorites(self):
         db.session.add(self)
         db.session.commit()
 
