@@ -28,13 +28,30 @@ def index():
         return render_template('index.html',week_fixture=week_fixture,favourites=favourites)
     return render_template('index.html',week_fixture=week_fixture,favourites=favourites)
 
-@main.route('/team/<name>')
+@main.route('/team/<name>', methods = ["GET", "POST"])
 def team(name):
     '''
     view function for the dynamic route for each team
     '''
     team_fixtures=get_fixtures(name)
-    return render_template('team.html',team_fixtures=team_fixtures)
+    favourites=[]
+    # week_fixture=get_week()
+    if current_user.is_authenticated:
+        if request.method == 'POST':
+            favourites_obj=Favourite.query.filter_by(user=current_user).all()
+            team_id = request.form.get('add_f')
+            fav_list=[]
+            for fav in favourites_obj:
+                asdf=fav.team_id
+                fav_list.append(asdf)
+            if team_id not in fav_list:
+                favourite_team = Favourite(team_id = team_id, user = current_user)
+                favourite_team.add_favorites()
+                return render_template('team.html',team_fixtures=team_fixtures,favourites=favourites)
+        favourites=Favourite.query.filter_by(user=current_user).all()
+        return render_template('team.html',team_fixtures=team_fixtures,favourites=favourites)
+    return render_template('team.html',team_fixtures=team_fixtures,favourites=favourites)
+
 
 
 @main.route('/league/<name>',methods=["GET","POST"])
@@ -43,5 +60,23 @@ def league(name):
     view function for league
     '''
     league=get_league(name)
-    print(len(league))
-    return render_template('league.html',league=league)
+    favourites=[]
+    # week_fixture=get_week()
+    if current_user.is_authenticated:
+        if request.method == 'POST':
+            favourites_obj=Favourite.query.filter_by(user=current_user).all()
+            team_id = request.form.get('add_f')
+            fav_list=[]
+            for fav in favourites_obj:
+                asdf=fav.team_id
+                fav_list.append(asdf)
+            if team_id not in fav_list:
+                favourite_team = Favourite(team_id = team_id, user = current_user)
+                favourite_team.add_favorites()
+                return render_template('league.html',league=league,favourites=favourites)
+        favourites=Favourite.query.filter_by(user=current_user).all()
+        return render_template('league.html',league=league,favourites=favourites)
+    return render_template('league.html',league=league,favourites=favourites)
+
+
+    # return render_template('league.html',league=league)

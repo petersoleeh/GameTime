@@ -45,9 +45,9 @@
     <div class="col-md-2">
       <h3>Favourites</h3>
       <ul class="">
-        <li><a href="#">chelsea</a><span class="home"><a class="btn btn-primary btn-sm"href="#">del</a></span></li>
-        <li><a href="#">arsenal</a></li>
-        <li><a href="#">man u</a></li>
+        {% for fav in favourites %}
+        <li><a href="/team/{{fav.team_id}}">{{fav.team_id}}</a></li>
+        {% endfor %}
       </ul>
     </div>
   </div>

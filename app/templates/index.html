@@ -32,10 +32,10 @@
             {% for fixture in week_fixture %}
             <tr>
               <td>{{fixture.date}}<br>{{fixture.status}}</td>
-              <td><a href="/team/{{fixture.home_id}}">{{fixture.home}}<form action="" method="post"><button class="btn btn-primary"type="submit" name="add_f" value="{{fixture.home_id}}">fav</button></form></td>
+              <td><a href="/team/{{fixture.home_id}}">{{fixture.home}}<span class="home"><form action="" method="post"><button class="btn btn-primary"type="submit" name="add_f" value="{{fixture.home_id}}">fav</button></form></span></td>
                 <td>{{fixture.score}}</td>
 
-              <td><a href="/team/{{fixture.away_id}}">{{fixture.away}}<form action="" method="post"><button class="btn btn-primary"type="submit" name="add_f" value="{{fixture.away_id}}">fav</button></form></td>
+              <td><a href="/team/{{fixture.away_id}}">{{fixture.away}}<span class="away"><form action="" method="post"><button class="btn btn-primary"type="submit" name="add_f" value="{{fixture.away_id}}">fav</button></form></span></td>
             </tr>
             {% endfor %}
           </tbody>
@@ -46,7 +46,7 @@
       <h3>Favourite Section</h3>
       <ul>
         {% for fav in favourites %}
-        <li><a href="#">{{fav.team_id}}</a></li>
+        <li><a href="/team/{{fav.team_id}}">{{fav.team_id}}</a></li>
                 {% endfor %}
                 </ul>
       </div>
