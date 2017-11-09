@@ -19,21 +19,24 @@
         <tr>
           <th>Date</th>
           <th>Home</th>
+          <th>score</th>
           <th>Away</th>
         </tr>
       </thead>
       <tbody>
         {% for fixture in team_fixtures %}
         <tr>
-          <td>{{fixture.date}}</td>
+          <td>{{fixture.date}} <br> {{fixture.status}}</td>
           <td><a href="/team/{{fixture.home_id}}">{{fixture.home}}</a> </td>
+          <td>{{fixture.score}}</td>
+
           <td><a href="/team/{{fixture.away_id}}">{{fixture.away}}</a> </td>
         </tr>
         {% endfor %}
       </tbody>
     </table>
-    </div>
   </div>
+</div>
 <div class="col-md-2">
   <h3>Favourites</h3>
   <ul class="">

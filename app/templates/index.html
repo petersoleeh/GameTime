@@ -25,15 +25,19 @@
             <tr>
               <th>Date</th>
               <th>Home</th>
+              <th>score</th>
+
               <th>Away</th>
             </tr>
           </thead>
           <tbody>
             {% for fixture in week_fixture %}
             <tr>
-              <td>{{fixture.date}}</td>
+              <td>{{fixture.date}}<br>{{fixture.status}}</td>
               <td><a href="/team/{{fixture.home_id}}">{{fixture.home}}<form action="" method="post"><button class="btn btn-primary"type="submit" name="add_f" value="{{fixture.home_id}}">fav</button></form></td>
-              <td><a href="/team/{{fixture.away_id}}">{{fixture.away}}</a> <span class="away"><a class="btn btn-primary btn-sm"href="#">fav</a></span></td>
+                <td>{{fixture.score}}</td>
+
+              <td><a href="/team/{{fixture.away_id}}">{{fixture.away}}<form action="" method="post"><button class="btn btn-primary"type="submit" name="add_f" value="{{fixture.away_id}}">fav</button></form></td>
             </tr>
             {% endfor %}
           </tbody>
