@@ -15,7 +15,7 @@ def index():
     if current_user.is_authenticated:
         if request.method == 'POST':
             team_id = request.form.get('add_f')
-            print(team_id)
+            # print(team_id)
 
             favourite_team = Favourite(team_id = team_id, user = current_user)
             favourite_team.add_favorites()
