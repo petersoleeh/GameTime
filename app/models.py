@@ -64,16 +64,19 @@ class League:
 
 class Favourite(db.Model):
     __tablename__ = 'favourites'
+    favourites =[]
 
     id = db.Column(db.Integer,primary_key = True)
     team_id= db.Column(db.String(255))
     user_id = db.Column(db.Integer,db.ForeignKey('users.id'))
 
     def add_favorites(self):
-        db.session.add(self)
+        favourites.append(self)
+        db.session.add(favourites)
         db.session.commit()
 
     @classmethod
     def delete_favourites(self,cls):
-        db.session.delete(self)
+        favourites.remove(cls)
+        db.session.delete(favourites)
         db.session.commit()

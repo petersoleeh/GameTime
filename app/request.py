@@ -15,15 +15,22 @@ def configure_request(app):
     league_url = app.config['LEAGUE_URL']
 
 
-def get_league():
+def get_league(name):
     '''
     function to get the league in api
     '''
-
+    get_fixtures_url = league_url.format(name)
     print(league_url)
+<<<<<<< HEAD
     with urllib.request.urlopen(league_url) as url:
         get_league_data = url.read()
         get_league_response = json.loads(get_league_data)
+=======
+    with urllib.request.urlopen(get_fixtures_url) as url:
+        # print('<><><><>>NM<><><><><><>')
+        get_league_data=url.read()
+        get_league_response=json.loads(get_league_data)
+>>>>>>> 04d7f208c21e81fbdcbe0a8a8157298fc1c05ce6
 
         league_results = None
 
