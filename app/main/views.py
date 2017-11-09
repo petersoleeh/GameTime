@@ -8,7 +8,7 @@ from flask_login import login_required,login_user, current_user
 @main.route('/', methods = ["GET", "POST"])
 def index():
     """
-    view function for the landing page
+    view function for the landing page    
     """
     favourites=[]
     week_fixture=get_week()
