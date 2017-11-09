@@ -16,14 +16,18 @@ def index():
         if request.method == 'POST':
             team_id = request.form.get('add_f')
             # print(team_id)
-            for fav in favourites:
-                if team_id not in favourites:
-                    favourite_team = Favourite(team_id = team_id, user = current_user)
-                    favourite_team.add_favorites()
+            favourites_team=Favourite.query.filter_by(user=current_user)
+
+            for fav in favourites_team:
+                if fav not in favourites:
+                    #favourite_team = Favourite(team_id = team_id, user = current_user)
+                    favourites.add_favorites()
+                else:
+                    favourites.delete_favourites()
 
             return redirect ('/')
 
-        favourites=Favourite.query.filter_by(user=current_user)
+        favourites_team = Favourite.query.filter_by(user=current_user)
         # print(len(week_fixture))
         return render_template('index.html',week_fixture=week_fixture,favourites=favourites)
     return render_template('index.html',week_fixture=week_fixture,favourites=favourites)
