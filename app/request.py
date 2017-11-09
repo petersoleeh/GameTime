@@ -1,16 +1,19 @@
-import urllib.request,json
-from .models import Match,League
+import urllib.request
+import json
+from .models import Match, League
 
 
 base_url = None
-fixture_url=None
-league_url=None
+fixture_url = None
+league_url = None
+
 
 def configure_request(app):
-    global base_url,fixture_url,league_url
+    global base_url, fixture_url, league_url
     base_url = app.config['GAME_WEEK_API']
     fixture_url = app.config['TEAM_URL']
-    league_url=app.config['LEAGUE_URL']
+    league_url = app.config['LEAGUE_URL']
+
 
 def get_league():
     '''
@@ -19,14 +22,13 @@ def get_league():
 
     print(league_url)
     with urllib.request.urlopen(league_url) as url:
-        # print('<><><><>>NM<><><><><><>')
-        get_league_data=url.read()
-        get_league_response=json.loads(get_league_data)
+        get_league_data = url.read()
+        get_league_response = json.loads(get_league_data)
 
-        league_results=None
+        league_results = None
 
-        league_results_list=get_league_response
-        league_results=process_league(league_results_list)
+        league_results_list = get_league_response
+        league_results = process_league(league_results_list)
         return league_results
 
 
@@ -41,8 +43,8 @@ def get_fixtures(name):
 
         fixture_results = None
 
-        fixture_results_list=get_fixtures_response
-        fixture_results=process_results(fixture_results_list)
+        fixture_results_list = get_fixtures_response
+        fixture_results = process_results(fixture_results_list)
         print(len(fixture_results))
         return fixture_results
 
@@ -63,23 +65,22 @@ def get_week():
 
         return fixture_results
 
+
 def process_league(league_list):
     '''
     function that process the league results and returns list of objects
     '''
-    league_results=[]
+    league_results = []
     for match in league_list:
-        pos=match.get('pos')
-        team=match.get('team')
-        team_id=match.get('team_id')
-        points=match.get('points')
-        played=match.get('played')
-        gd=match.get('gd')
-
+        pos = match.get('pos')
+        team = match.get('team')
+        team_id = match.get('team_id')
+        points = match.get('points')
+        played = match.get('played')
+        gd = match.get('gd')
 
         if team:
-            # print('<><><><><><>FGHJ<><><><><>')
-            standing_object=League(pos,team,team_id,points,played,gd)
+            standing_object = League(pos, team, team_id, points, played, gd)
             league_results.append(standing_object)
     return league_results
 
