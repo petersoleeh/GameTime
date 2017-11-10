@@ -3,7 +3,7 @@
 {%block styles%} {{ super() }}
 <link rel="stylesheet" href="{{url_for('static', filename='css/index.css')}}"> {%endblock%} {% block content %}
 
-<div class="container">
+<div class="container-fluid">
   <div class="row">
     <div class="col-md-2">
       <h3>Leagues</h3>
@@ -45,11 +45,18 @@
     </div>
     <div class="col-md-2">
       <h3>Favourites</h3>
-      <ul class="">
+      <div class="row">
         {% for fav in favourites %}
-        <li class="fav"><a href="/team/{{fav}}">{{fav}}</a><span class="away"><form action="" method="post"><button class="btn btn-danger btn-sm"type="submit" name="del_f" value="{{fav}}">del</button></form></span></li>
+        <div class="col-md-10">
+
+          <li class="fav"><a href="/team/{{fav.team_id}}">{{fav}}</a></li>
+
+        </div>
+        <div class="col-md-2">
+          <span class="away"><form action="" method="post"><button class="btn btn-danger btn-sm"type="submit" name="del_f" value="{{fav}}">del</button></form></span>
+        </div>
         {% endfor %}
-      </ul>
+      </div>
     </div>
   </div>
 </div>
