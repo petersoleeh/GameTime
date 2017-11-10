@@ -24,17 +24,17 @@ def get_league(name):
 
     with urllib.request.urlopen(league_url) as url:
         get_league_data = url.read()
-        get_league_response = json.loads(get_league_data)
+        get_league_response =json.loads(get_league_data)
 
     with urllib.request.urlopen(get_fixtures_url) as url:
         # print('<><><><>>NM<><><><><><>')
         get_league_data = url.read()
-        get_league_response = json.loads(get_league_data)
+        get_league_response =json.loads(get_league_data)
 
         league_results = None
 
         league_results_list = get_league_response
-        league_results = process_league(league_results_list)
+        league_results=process_league(league_results_list)
         return league_results
 
 
