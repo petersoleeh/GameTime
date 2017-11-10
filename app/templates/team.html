@@ -39,7 +39,7 @@
   <h3>Favourites</h3>
   <ul class="">
     {% for fav in favourites %}
-    <li class="fav"><a href="/team/{{fav.team_id}}">{{fav.team_id}}</a><span class="away"><form action="" method="post"><button class="btn btn-danger btn-sm"type="submit" name="del_f" value="{{fav.team_id}}">del</button></form></span></li>
+    <li class="fav"><a href="/team/{{fav}}">{{fav}}</a><span class="away"><form action="" method="post"><button class="btn btn-danger btn-sm"type="submit" name="del_f" value="{{fav}}">del</button></form></span></li>
     {% endfor %}
   </ul>
 </div>

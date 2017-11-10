@@ -28,7 +28,7 @@ def index():
                 favourite_team = Favourite(team_id = team_id, user = current_user)
                 favourite_team.add_favorites()
             return redirect ('/')
-        favourites=Favourite.query.filter_by(user=current_user)
+        favourites=Favourite.get_favourite()
         return render_template('index.html',week_fixture=week_fixture,favourites=favourites)
     return render_template('index.html',week_fixture=week_fixture,favourites=favourites)
 
@@ -55,7 +55,9 @@ def team(name):
             if team_id not in fav_list:
                 favourite_team = Favourite(team_id = team_id, user = current_user)
                 favourite_team.add_favorites()
-        favourites=Favourite.query.filter_by(user=current_user).all()
+        # favourites=Favourite.query.filter_by(user=current_user).all()
+        favourites=Favourite.get_favourite()
+
         return render_template('team.html',team_fixtures=team_fixtures,favourites=favourites)
     return render_template('team.html',team_fixtures=team_fixtures,favourites=favourites)
 
@@ -85,7 +87,9 @@ def league(name):
                 favourite_team = Favourite(team_id = team_id, user = current_user)
                 favourite_team.add_favorites()
                 return render_template('league.html',league=league,favourites=favourites)
-        favourites=Favourite.query.filter_by(user=current_user).all()
+        # favourites=Favourite.query.filter_by(user=current_user).all()
+        favourites=Favourite.get_favourite()
+
         return render_template('league.html',league=league,favourites=favourites)
     return render_template('league.html',league=league,favourites=favourites)
 
