@@ -31,7 +31,7 @@
             {% for standing in league %}
             <tr>
               <td>{{standing.pos}}</td>
-              <td>{{standing.team}}</td>
+              <td><a href="/team/{{standing.team_id}}">{{standing.team}}</a></td>
               <td>{{standing.played}}</td>
               <td>{{standing.gd}}</td>
               <td>{{standing.points}}</td>
@@ -46,7 +46,7 @@
       <h3>Favourites</h3>
       <ul class="">
         {% for fav in favourites %}
-        <li><a href="/team/{{fav.team_id}}">{{fav.team_id}}</a></li>
+        <li class="fav"><a href="/team/{{fav.team_id}}">{{fav.team_id}}</a><span class="away"><form action="" method="post"><button class="btn btn-danger btn-sm"type="submit" name="del_f" value="{{fav.team_id}}">del</button></form></span></li>
         {% endfor %}
       </ul>
     </div>
