@@ -19,6 +19,7 @@ html{
   background-color: #057f39;
   color: #fff;
 
+
 }
 body{
   background-color: #057f39;
@@ -38,16 +39,29 @@ footer {
   padding: 1rem;
   background-color: #02401d;
   text-align: center;
+  z-index: 10;
 }
+#title{
+  text-align: center;
+  font-size: 84px;
+  font-family: 'Lobster', cursive;
 
-
-/*.jumbotron{
-  background-image: url("../images/soccer-ball.jpg");
+}
+#pics-left{
+  background-image: url("../images/EPL-icon.png");
   background-repeat: no-repeat;
-  padding-top: 0%;
-  padding-bottom: 15%;
+  background-size: cover;
+  width: 40%;
+  padding-bottom: 190px;
 
-}*/
-.fav{
-  margin: 15px;
+}
+#pics-right{
+  background-image: url("../images/liga1.png");
+  background-repeat: no-repeat;
+  width: 40%;
+  background-size: cover;
+  padding-bottom: 190px;
+  float: right;
+
+
 }
