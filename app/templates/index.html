@@ -6,13 +6,15 @@
   <h1 id="header">GameTime</h1>
 </div> -->
 
-<div id="index" class="container">
+<div id="index" class="container-fluid">
   <div class="row">
     <div class="col-md-2">
       <h3>Leagues</h3>
       <ul class="">
-        <li><a  href="/league/epl">EPL</a></span></li>
+        <li><a href="/league/epl">EPL</a></span>
+        </li>
         <li><a href="/league/bundesliga">BundesLiga</a></li>
+        <li><a href="/league/laliga">La-LIGA</a></li>
       </ul>
     </div>
     <div class="col-md-8">
@@ -43,15 +45,23 @@
       </div>
     </div>
     <div class="col-md-2">
-      <h3>Favourite Section</h3>
-      <ul>
-        {% for fav in favourites %}
-        <li><a href="/team/{{fav.team_id}}">{{fav.team_id}}</a></li>
-                {% endfor %}
-                </ul>
+      <h3>Favourites</h3>
+
+        <div class="row">
+          {% for fav in favourites %}
+          <div class="col-md-10">
+
+            <li class="fav"><a href="/team/{{fav.team_id}}">{{fav}}</a></li>
+
       </div>
+      <div class="col-md-2">
+        <span class="away"><form action="" method="post"><button class="btn btn-danger btn-sm"type="submit" name="del_f" value="{{fav}}">del</button></form></span>
+      </div>
+      {% endfor %}
     </div>
   </div>
+</div>
+</div>
 
 
-  {% endblock %}
+{% endblock %}

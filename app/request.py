@@ -5,12 +5,33 @@ from .models import Match,League
 base_url = None
 fixture_url=None
 league_url=None
+search_url=None
 
 def configure_request(app):
-    global base_url,fixture_url,league_url
+    global base_url,fixture_url,league_url,search_url
     base_url = app.config['GAME_WEEK_API']
     fixture_url = app.config['TEAM_URL']
     league_url=app.config['LEAGUE_URL']
+    search_url=app.config['SEARCH_URL']
+
+def get_search(name):
+    '''
+    function to get the league in api
+    '''
+    get_fixtures_url = search_url.format(name)
+    print(get_fixtures_url)
+    with urllib.request.urlopen(get_fixtures_url) as url:
+        # print('<><><><>>NM<><><><><><>')
+        get_search_data=url.read()
+        get_search_response=json.loads(get_search_data)
+
+        search_results=None
+
+        search_results_list=get_search_response
+        # search_results=process_search(search_results_list)
+        return search_results_list
+
+
 
 def get_league(name):
     '''

@@ -4,6 +4,8 @@
 <head>
   <meta charset="utf-8">
   <link rel="stylesheet" href="static/css/index.css">
+  <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
+
 
   <title></title>
 </head>
@@ -24,33 +26,43 @@
         <ul class="nav navbar-nav">
           <li><a href="/">Home</a></li>
         </ul>
-        <form class="navbar-form navbar-left">
+        <form class="navbar-form navbar-left" method="post" action="/search">
           <div class="input-group">
-            <input type="text" class="form-control" placeholder="Search">
+            <input type="text" class="form-control" placeholder="Search" name='search'>
             <div class="input-group-btn">
-              <button class="btn btn-default" type="submit">
-                  <i class="glyphicon glyphicon-search"></i>
-                </button>
+              <i class="glyphicon glyphicon-search"></i>
+              </button>
             </div>
         </form>
-      </div>
+        </div>
         <ul class="nav navbar-nav navbar-right">
           {%if current_user.is_authenticated%}
 
-          <li><h4><a href="#">{{current_user.username}}</a></h4></li>
+          <li>
+            <h4><a href="#">{{current_user.username}}</a></h4></li>
           <li><a href="{{url_for('auth.logout')}}"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
           {%else%}
           <li><a href="{{url_for('auth.register')}}"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
           <li><a href="{{url_for('auth.login')}}"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
           {%endif%}
         </ul>
-        </div>
       </div>
     </div>
-    <div class="clear">
-    <footer>GameTime &#169; 2017</footer>
+  </div>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-4">
+        <div id="pics-left"></div>
+      </div>
+      <div class="col-md-4">
+        <h1 id="title">GAME TIME</h1>
+      </div>
+      <div class="col-md-4">
+        <div id="pics-right"></div>
+      </div>
     </div>
-
-
+  </div>
+  <footer>GameTime &#169; 2017</footer>
 </body>
+
 </html>

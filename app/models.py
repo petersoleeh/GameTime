@@ -2,6 +2,8 @@ from werkzeug.security import generate_password_hash,check_password_hash
 from flask_login import UserMixin
 from . import db
 from . import login_manager
+from flask_login import login_required,login_user, current_user
+
 
 
 @login_manager.user_loader
@@ -74,3 +76,17 @@ class Favourite(db.Model):
 
         db.session.add(self)
         db.session.commit()
+    def delete_favourite(self):
+        db.session.delete(self)
+        db.session.commit()
+
+    @classmethod
+    def get_favourite(cls):
+        fav_list=[]
+        favourites=Favourite.query.filter_by(user=current_user).all()
+        for fav in favourites:
+            if fav.team_id==None:
+                print('None')
+            else:
+                fav_list.append(fav.team_id)
+        return fav_list

@@ -3,13 +3,14 @@
 {%block styles%} {{ super() }}
 <link rel="stylesheet" href="{{url_for('static', filename='css/index.css')}}"> {%endblock%} {% block content %}
 
-<div class="container">
+<div class="container-fluid">
   <div class="row">
     <div class="col-md-2">
       <h3>Leagues</h3>
       <ul class="">
         <li><a href="/league/epl">EPL</a></li>
         <li><a href="/league/bundesliga">BundesLiga</a></li>
+        <li><a href="/league/laliga">La-LIGA</a></li>
       </ul>
     </div>
     <div class="col-md-8">
@@ -31,8 +32,8 @@
             {% for standing in league %}
             <tr>
               <td>{{standing.pos}}</td>
-              <td>{{standing.team}}</td>
-              <td>{{standing.played}}</td>
+              <td><a href="/team/{{standing.team_id}}">{{standing.team}}</a></td>
+              <td>11</td>
               <td>{{standing.gd}}</td>
               <td>{{standing.points}}</td>
 
@@ -44,11 +45,18 @@
     </div>
     <div class="col-md-2">
       <h3>Favourites</h3>
-      <ul class="">
+      <div class="row">
         {% for fav in favourites %}
-        <li><a href="/team/{{fav.team_id}}">{{fav.team_id}}</a></li>
+        <div class="col-md-10">
+
+          <li class="fav"><a href="/team/{{fav.team_id}}">{{fav}}</a></li>
+
+        </div>
+        <div class="col-md-2">
+          <span class="away"><form action="" method="post"><button class="btn btn-danger btn-sm"type="submit" name="del_f" value="{{fav}}">del</button></form></span>
+        </div>
         {% endfor %}
-      </ul>
+      </div>
     </div>
   </div>
 </div>
